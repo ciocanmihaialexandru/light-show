@@ -35,4 +35,30 @@ public class LightBulb {
     public void setBrightness(int brightness) {
         this.brightness = brightness;
     }
+
+    public boolean isInRange(Coordinate start, Coordinate end) {
+        return (this.getCoordinate().getRow() >= start.getRow() &&
+                    this.getCoordinate().getColumn() >= start.getColumn()) &&
+                (this.getCoordinate().getRow() <= end.getRow() &&
+                    this.getCoordinate().getColumn() <= end.getColumn());
+    }
+
+    public void applyInstruction(Instruction instruction) {
+        switch (instruction.getCommand()) {
+            case "turn on":
+                this.setState(1);
+                this.setBrightness(this.getBrightness() + 1);
+                break;
+            case "turn off":
+                this.setState(0);
+                this.setBrightness(Math.max(this.getBrightness() - 1, 0));
+                break;
+            case "toggle":
+                this.setState(1 - this.getState());
+                this.setBrightness(this.getBrightness() + 2);
+                break;
+            default:
+                break;
+        }
+    }
 }
