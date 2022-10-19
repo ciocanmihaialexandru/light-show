@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         LightShow show = new LightShow(new Grid(1000), 0, 0);
-        show.setInstructions(new File("test.txt"));
+        show.setInstructions(new File("testData/test1.txt"));
         show.run();
 
         System.out.println("Number of lights: " + show.getTotalLights());

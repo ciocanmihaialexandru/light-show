@@ -45,7 +45,6 @@ public class LightShow {
     }
 
     public void setInstructions(File file) throws IOException {
-
         List<Instruction> instructions = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(file));
         String st;
